@@ -1,9 +1,12 @@
 const outputElement = document.querySelector("#name-output");
 
-document.querySelector("#name-input").addEventListener("input", (event) => {
-  if (event.target.value === "") {
-    outputElement.textContent = "незнакомец";
-  } else {
-    outputElement.textContent = event.target.value;
-  }
-});
+document
+  .querySelector("#name-input")
+  .addEventListener("input", ({ target: { value } }) => {
+    const trimmedValue = value.trim();
+    if (trimmedValue === "") {
+      outputElement.textContent = "незнакомец";
+    } else {
+      outputElement.textContent = trimmedValue;
+    }
+  });
